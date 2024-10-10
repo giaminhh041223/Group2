@@ -1,99 +1,27 @@
-package HustBookStore;
-import java.util.Scanner;
 public class HUSTBookStoreManagement {
-    private static void addProduct(Store store, Scanner scanner) {
-        System.out.println("Add Product Menu:");
-        System.out.println("1. Add Book");
-        System.out.println("2. Add Stationary");
-        System.out.println("3. Add Toy");
-    
-        System.out.print("Choose product type: ");
-        int productType = scanner.nextInt();
-        scanner.nextLine();  // Consume newline
-    
-        System.out.print("Enter product ID: ");
-        String productID = scanner.nextLine();
-        System.out.print("Enter product name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter purchase price: ");
-        double purchasePrice = scanner.nextDouble();
-        System.out.print("Enter selling price: ");
-        double sellingPrice = scanner.nextDouble();
-        System.out.print("Enter quantity: ");
-        int quantity = scanner.nextInt();
-        scanner.nextLine();  // Consume newline
-    
-        switch (productType) {
-            case 1:
-                // Adding Book
-                System.out.print("Enter publisher: ");
-                String publisher = scanner.nextLine();
-                System.out.print("Enter author: ");
-                String author = scanner.nextLine();
-                System.out.print("Enter ISBN: ");
-                String ISBN = scanner.nextLine();
-                Product book = new Book(productID, name, purchasePrice, sellingPrice, quantity, publisher, author, ISBN);
-                store.addProduct(book);
-                System.out.println("Book added successfully.");
-                break;
-            case 2:
-                // Adding Stationary
-                System.out.print("Enter brand: ");
-                String brand = scanner.nextLine();
-                System.out.print("Enter stationary type: ");
-                String stationaryType = scanner.nextLine();
-                Product stationary = new Stationary(productID, name, purchasePrice, sellingPrice, quantity, brand, stationaryType);
-                store.addProduct(stationary);
-                System.out.println("Stationary added successfully.");
-                break;
-            case 3:
-                // Adding Toy
-                System.out.print("Enter brand: ");
-                String toyBrand = scanner.nextLine();
-                System.out.print("Enter suitable age: ");
-                String suitableAge = scanner.nextLine();
-                Product toy = new Toy(productID, name, purchasePrice, sellingPrice, quantity, toyBrand, suitableAge);
-                store.addProduct(toy);
-                System.out.println("Toy added successfully.");
-                break;
-            default:
-                System.out.println("Invalid product type.");
-        }
-    }
-    
     public static void main(String[] args) {
         Store store = new Store();
-        Scanner scanner = new Scanner(System.in);
-        boolean running = true;
-    
-        while (running) {
-            // Displaying a Menu
-            System.out.println("\n====== HUST Book Store Management ======");
-            System.out.println("1. Add Product");
-            System.out.println("2. View Inventory");
-            System.out.println("3. Process Order");
-            System.out.println("4. Pay Salaries");
-            System.out.println("5. Add Other Costs");
-            System.out.println("6. Generate Financial Report");
-            System.out.println("7. Save Data");
-            System.out.println("8. Load Data");
-            System.out.println("9. Exit");
-            System.out.print("Choose an option: ");
-    
-            int choice = scanner.nextInt();
-            scanner.nextLine();  // consume the newline character
-    
-            switch (choice) {
-                case 1:
-                    addProduct(store, scanner);
-                    break;
-                default:
-                    System.out.println("Invalid choice, try again.");
-                    break;
-            }
-        }
-        scanner.close();
+        Product book1 = new Book("01", "Sach giai tich", 10000, 15000, 100, "NXB bach khoa", "TS Bui Xuan Dieu", "89-****");
+        Product book2 = new Book("02", "Xac suat", 8000, 12000, 100, "NXB bach khoa", "Nguyen Huu Du", "89-****");
+        Product stationary1 = new Stationary("03", "Notebook", 5000, 8000, 100, "MIT dai co viet", "A4 Notebook");
+        Product toy1 = new Toy("04", "ipad", 25000000, 35000000, 10, "APPLE", "0+");
+        store.addProduct(book1);
+        store.addProduct(book2);
+        store.addProduct(stationary1);
+        store.addProduct(toy1);
+        Employee emp1 = new Employee("Lam", 1500, "Thu ngan");
+        Employee emp2 = new Employee("Quang", 2000, "Bao ve");
+        store.addEmployee(emp1);
+        store.addEmployee(emp2);
+        Order order1 = new Order();
+        order1.addProduct(book1, 2); 
+        order1.addProduct(toy1, 3); 
+        store.processOrder(order1);
+        System.out.println("hoa don:");
+        order1.displayOrder();
+        store.paySalaries();
+        store.addOtherCost(0);  
+        System.out.println("Bao cao doanh thu:");
+        store.generateReport();
     }
-
 }
-    
