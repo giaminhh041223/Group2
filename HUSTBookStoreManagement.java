@@ -8,7 +8,7 @@ public class HUSTBookStoreManagement {
     
         System.out.print("Choose product type: ");
         int productType = scanner.nextInt();
-        scanner.nextLine();  // Consume newline
+        scanner.nextLine();  
     
         System.out.print("Enter product ID: ");
         String productID = scanner.nextLine();
@@ -20,11 +20,10 @@ public class HUSTBookStoreManagement {
         double sellingPrice = scanner.nextDouble();
         System.out.print("Enter quantity: ");
         int quantity = scanner.nextInt();
-        scanner.nextLine();  // Consume newline
+        scanner.nextLine();  
     
         switch (productType) {
             case 1:
-                // Adding Book
                 System.out.print("Enter publisher: ");
                 String publisher = scanner.nextLine();
                 System.out.print("Enter author: ");
@@ -36,7 +35,6 @@ public class HUSTBookStoreManagement {
                 System.out.println("Book added successfully.");
                 break;
             case 2:
-                // Adding Stationary
                 System.out.print("Enter brand: ");
                 String brand = scanner.nextLine();
                 System.out.print("Enter stationary type: ");
@@ -46,7 +44,6 @@ public class HUSTBookStoreManagement {
                 System.out.println("Stationary added successfully.");
                 break;
             case 3:
-                // Adding Toy
                 System.out.print("Enter brand: ");
                 String toyBrand = scanner.nextLine();
                 System.out.print("Enter suitable age: ");
@@ -66,7 +63,6 @@ public class HUSTBookStoreManagement {
         boolean running = true;
     
         while (running) {
-            // Displaying a Menu
             System.out.println("\n====== HUST Book Store Management ======");
             System.out.println("1. Add Product");
             System.out.println("2. View Inventory");
@@ -80,7 +76,7 @@ public class HUSTBookStoreManagement {
             System.out.print("Choose an option: ");
     
             int choice = scanner.nextInt();
-            scanner.nextLine();  // consume the newline character
+            scanner.nextLine(); 
     
             switch (choice) {
                 case 1:
