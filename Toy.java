@@ -1,5 +1,3 @@
-package HustBookStore;
-
 class Toy extends Product {
     private String brand;
     private String suitableAge;
