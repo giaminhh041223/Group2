@@ -1,5 +1,3 @@
-package HustBookStore;
-
 abstract class Product {
     protected String productID;
     protected String name;
