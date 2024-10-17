@@ -1,5 +1,3 @@
-package HustBookStore;
-
 class Book extends Product {
     private String publisher;
     private String author;
