@@ -1,5 +1,3 @@
-package HustBookStore;
-
 class Stationary extends Product {
     private String brand;
     private String stationaryType;
