@@ -8,8 +8,6 @@ class Toy extends Product {
         this.brand = brand;
         this.suitableAge = suitableAge;
     }
-
-    @Override
     public void displayInfo() {
         System.out.println("Toy: " + name + ", Brand: " + brand + ", Suitable for Ages: " + suitableAge);
     }
