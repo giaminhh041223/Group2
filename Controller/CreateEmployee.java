@@ -1,6 +1,9 @@
 package Controller;
 
+import java.util.Calendar;
 import java.util.Scanner;
+
+import History.History;
 import Model.Database;
 import Model.Employee;
 import Model.Option;
@@ -8,11 +11,9 @@ import Model.Option;
 public class CreateEmployee implements Option {
 
     @Override
-    public void oper(Employee user, Scanner s, Database database) {
+    public void operate(Employee user, Scanner s, Database database,History history) {
         System.out.println("Enter first name:");
-        String firstName = s.next();
-        System.out.println("Enter last name:");
-        String lastName = s.next();
+        String name = s.next();
         System.out.println("Enter email:");
         String email = s.next();
         System.out.println("Enter phone number:");
@@ -24,17 +25,16 @@ public class CreateEmployee implements Option {
         System.out.println("Enter password:");
         String password = s.next();
 
-        Employee e = new Employee(); // Replace with appropriate subclass if needed
-        e.setFristName(firstName);
-        e.setLastName(lastName);
+        Employee e = null ; // Replace with appropriate subclass if needed
+        e.setName(name);
         e.setEmail(email);
-        e.setPhoneNumber(phoneNumber);
-        e.setAddress(address);
         e.setSalary(salary);
         e.setPassword(password);
 
-        database.addEmployee(e);
+        database.getEmployees().add(e);
         System.out.println("Employee created successfully");
+        Calendar date = Calendar.getInstance();
+        history.addEmployeeHistory("created", date, e);
     }
 
     @Override
