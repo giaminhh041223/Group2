@@ -22,7 +22,31 @@ public abstract class Employee {
         return name;
     }
 
-    public String getEmail() {
+    public Option[] getOptions() {
+		return options;
+	}
+
+	public void setOptions(Option[] options) {
+		this.options = options;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
+	public String getEmail() {
         return email;
     }
 
