@@ -22,7 +22,11 @@ public class Receipt {
 		this.change = change;
 	}
 
-    public String getID() {
+    public Receipt() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getID() {
         return ID;
     }
 
