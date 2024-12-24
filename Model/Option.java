@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public interface Option {
 
-    abstract void operate(UserType user, Scanner scanner, Database database);
+    abstract void operate(Employee user, Scanner scanner, Database database);
 
     abstract String getOption();    
 }

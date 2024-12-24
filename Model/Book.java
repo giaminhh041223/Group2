@@ -2,18 +2,31 @@ package Model;
 public class Book extends Product {
     private String publisher;
     private String author;
-    private String ISBN;
 
-    public Book(String productID, String name, double purchasePrice, double sellingPrice, int quantity,
-                String publisher, String author, String ISBN) {
-        super(productID, name, purchasePrice, sellingPrice, quantity);
+    public Book(String ID, String name, double purchasePrice, double sellingPrice, int qty,
+                String publisher, String author) {
+        super(ID, name, purchasePrice, sellingPrice, qty);
         this.publisher = publisher;
         this.author = author;
-        this.ISBN = ISBN;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 
     @Override
-    public void displayInfo() {
-        System.out.println("Book: " + name + ", Author: " + author + ", Publisher: " + publisher + ", ISBN: " + ISBN);
+    public void print() {
+        System.out.println("-------------------------");
+        System.out.println("ID:\t\t" + getID());
+        System.out.println("Name:\t\t" + getName());
+        System.out.println("Selling Price:\t\t" + getSellingPrice());
+        System.out.println("Qty:\t\t" + getQty());
+        System.out.println("Publisher:\t\t" + getPublisher());
+        System.out.println("Author:\t\t" + getAuthor());
+        System.out.println("-------------------------");
     }
 }

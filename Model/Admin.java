@@ -1,27 +1,21 @@
 package Model;
 
+import Controller.*;
+
 public class Admin extends Employee {
 
     public Admin() {
         generateOptions();
     }
 
-    public Admin(String name, String email, String password, String workingtime, double salary) {
-         super(name, email, password, workingtime, salary);
+    public Admin(String name, String email, String password, double salary) {
+         super(name, email, password, salary);
          generateOptions();
-    }
-
-    @Override
-    public String getRole() {
-        return "Admin";
     }
 
     private void generateOptions() {
         this.options = new Option[] {
             new CreateEmployee(),
-            new DeleteEmployee(),
-            new AddProduct(),
-            new DeleteProduct(),
             new ViewStore()
         };
     }

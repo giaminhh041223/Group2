@@ -1,11 +1,5 @@
-package Store;
 import java.util.Scanner;
 
-import Store;
-import Model.Book;
-import Model.Product;
-import Model.Stationary;
-import Model.Toy;
 public class HUSTBookStoreManagement {
     private static void addProduct(Store store, Scanner scanner) {
         System.out.println("Add Product Menu:");

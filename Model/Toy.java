@@ -4,13 +4,30 @@ public class Toy extends Product {
     private String brand;
     private String suitableAge;
 
-    public Toy(String productID, String name, double purchasePrice, double sellingPrice, int quantity,
+    public Toy(String ID, String name, double purchasePrice, double sellingPrice, int qty,
                String brand, String suitableAge) {
-        super(productID, name, purchasePrice, sellingPrice, quantity);
+        super(ID, name, purchasePrice, sellingPrice, qty);
         this.brand = brand;
         this.suitableAge = suitableAge;
     }
-    public void displayInfo() {
-        System.out.println("Toy: " + name + ", Brand: " + brand + ", Suitable for Ages: " + suitableAge);
+    
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getSuitableAge() {
+        return suitableAge;
+    }
+
+    @Override
+    public void print() {
+        System.out.println("-------------------------");
+        System.out.println("ID:\t\t" + getID());
+        System.out.println("Name:\t\t" + getName());
+        System.out.println("Selling Price:\t\t" + getSellingPrice());
+        System.out.println("Qty:\t\t" + getQty());
+        System.out.println("Brand:\t\t" + getBrand());
+        System.out.println("Suitable Age:\t\t" + getSuitableAge());
+        System.out.println("-------------------------");
     }
 }

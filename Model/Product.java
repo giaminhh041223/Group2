@@ -16,43 +16,44 @@ public abstract class Product {
     }
 
     public String getID() {
-		return ID;
-	}
-	
-	public void setID(String ID) {
-		this.ID = ID;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public double getPurchasePrice() {
-		return purchasePrice;
-	}
-	
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPurchasePrice() {
+        return purchasePrice;
+    }
+
+    public void setPurchasePrice(double price) {
+        this.purchasePrice = price;
+    }
+
     public double getSellingPrice() {
         return sellingPrice;
     }
-	public void setPurchasePrice(double price) {
-		this.purchasePrice = price;
-	}
 
     public void setSellingPrice(double price) {
-		this.sellingPrice = price;
-	}
-	
-	public int getQty() {
-		return qty;
-	}
-	
-	public void setQty(int qty) {
-		this.qty = qty;
-	}
+        this.sellingPrice = price;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
 
     public abstract void print();
 }

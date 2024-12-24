@@ -1,7 +1,6 @@
 package Model;
-import java.util.Scanner;
 
-public abstract class Employee implements UserType {
+public abstract class Employee {
     protected String name;
     protected String email;
     protected String password;
@@ -12,11 +11,10 @@ public abstract class Employee implements UserType {
 
     }
 
-    public Employee(String name, String email, String password, String workingtime, double salary) {
+    public Employee(String name, String email, String password, double salary) {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.workingtime = workingtime;
         this.salary = salary;
     }
 
@@ -34,17 +32,5 @@ public abstract class Employee implements UserType {
 
     public double getSalary() {
         return salary;
-    }
-
-    public abstract String getRole();
-
-    @Override
-    public void showOptions(Scanner scanner, Database database) {
-        for (int i = 0; i < options.length; i++) {
-            System.out.println((i+1) + ". " + options[i].getOption());
-        }
-
-        int choice = scanner.nextInt();
-        options[choice - 1].operate(this, scanner, database);
     }
 }
