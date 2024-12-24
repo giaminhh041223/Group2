@@ -14,10 +14,6 @@ public class Database {
         return products;
     }
 
-    public void addEmployee(Employee employee) {
-        employees.add(employee);
-    }
-
     public void addProduct(Product product) {
         products.add(product);
     }
