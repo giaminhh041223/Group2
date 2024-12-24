@@ -1,4 +1,6 @@
-class Stationary extends Product {
+package Model;
+
+public class Stationary extends Product {
     private String brand;
     private String stationaryType;
 

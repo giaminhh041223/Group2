@@ -1,4 +1,6 @@
-class Toy extends Product {
+package Model;
+
+public class Toy extends Product {
     private String brand;
     private String suitableAge;
 

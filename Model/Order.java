@@ -1,6 +1,8 @@
+package Model;
+
 import java.util.ArrayList;
 import java.util.List;
-class Order {
+public class Order {
     private List<Product> products;
     private double totalCost;
 

@@ -1,4 +1,11 @@
+package Store;
 import java.util.Scanner;
+
+import Store;
+import Model.Book;
+import Model.Product;
+import Model.Stationary;
+import Model.Toy;
 public class HUSTBookStoreManagement {
     private static void addProduct(Store store, Scanner scanner) {
         System.out.println("Add Product Menu:");
@@ -58,8 +65,19 @@ public class HUSTBookStoreManagement {
     }
     
     public static void main(String[] args) {
-        Store store = new Store();
+        
+
+        System.out.println("Welcome to Hust Book Store Management System!\n"
+                           + "Are you a Customer or an Employee?\n1. Customer\n2. Employee\n0. Exit");
         Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1: login();
+            case 2: login();
+            case 0: break;
+            default: System.out.println("");
+        }
         boolean running = true;
     
         while (running) {

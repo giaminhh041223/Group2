@@ -1,4 +1,5 @@
-class Book extends Product {
+package Model;
+public class Book extends Product {
     private String publisher;
     private String author;
     private String ISBN;
