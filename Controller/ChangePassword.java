@@ -13,7 +13,7 @@ public class ChangePassword implements Option {
         String oldPass = scanner.next();
 
         if (!oldPass.equals(user.getPassword())) {
-            System.out.println("Incorrect password\nTry again later");
+            System.out.println("Incorrect password. Try again later");
             return;
         }
 
@@ -23,13 +23,14 @@ public class ChangePassword implements Option {
         String confirmPass = scanner.next();
 
         if (!newPass.equals(confirmPass)) {
-            System.out.println("Password doesn't match\nTry again later");
+            System.out.println("Password doesn't match. Try again later");
             return;
         }
 
         user.setPassword(confirmPass);
         Calendar date= Calendar.getInstance();
-        history.addEmployeeHistory("Changed password to "+newPass,date,user);
+        history.addEmployeeHistory("Changed password to " + confirmPass, date, user);
+        System.out.println("Password changed successfully.");
     }
 
     @Override

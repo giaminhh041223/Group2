@@ -1,27 +1,22 @@
 package Controller;
 
 import java.util.Scanner;
-import java.util.ArrayList;
+
+import History.History;
 import Model.*;
-import History.*;
 
 public class ReadAllEmployees implements Option {
 
     @Override
     public void operate(Employee user, Scanner s, Database database, History history) {
-        new ReadAllEmployees(database);
+        System.out.println("Employee List:");
+        for (Employee e : database.getEmployees()) {
+            e.print();
+        }
     }
 
     @Override
     public String getOption() {
         return "View All Employees";
     }
-
-    public ReadAllEmployees(Database database) {
-        ArrayList<Employee> employees = database.getEmployees();
-        for (Employee e : employees) {
-            e.print();
-        System.out.println("--------------------------------");
-        }
-    }   
 }

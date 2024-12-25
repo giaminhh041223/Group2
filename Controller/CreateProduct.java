@@ -1,22 +1,22 @@
 package Controller;
 
+import java.util.Calendar;
 import java.util.Scanner;
-
 import History.History;
 import Model.*;
 
 public class CreateProduct implements Option {
 
-    public void operate(Employee user, Scanner s, Database database,History history) {
+    public void operate(Employee user, Scanner s, Database database, History history) {
         System.out.println("Enter product name:");
         String name = s.next();
         System.out.println("Enter product ID:");
         String ID = s.next();
         System.out.println("Enter type");
         String type = s.next();
-        System.out.println("Enter product purchaseprice:");
+        System.out.println("Enter product purchase price:");
         double purchaseprice = s.nextDouble();
-        System.out.println("Enter product sellingprice:");
+        System.out.println("Enter product selling price:");
         double sellingprice = s.nextDouble();
         System.out.println("Enter product quantity:");
         int qty = s.nextInt();
@@ -40,6 +40,8 @@ public class CreateProduct implements Option {
 
         database.getProducts().add(product);
         System.out.println("Product created successfully");
+        Calendar date = Calendar.getInstance();
+        history.addProductHistory(type, date, product);
     }
     public String getOption() {
         return "Add New Product";

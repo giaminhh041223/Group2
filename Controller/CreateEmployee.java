@@ -25,28 +25,23 @@ public class CreateEmployee implements Option {
         Employee e;
 		switch (department) {
 		case 0:
-			e = new Admin();
+			e = new Admin(ID, name, email, password, salary);
 			break;
 		case 1:
-			e = new Cashier();
+			e = new Cashier(ID, name, email, password, salary);
 			break;
 		case 2:
-			e = new Storekeeper();
+			e = new Storekeeper(ID, name, email, password, salary);
 			break;
 		default:
 			System.out.println("Invalid department");
 			return;
 		}
-        e.setName(name);
-        e.setEmail(email);
-        e.setID(ID);
-        e.setPassword(password);
-        e.setSalary(salary);
         
         database.getEmployees().add(e);
         System.out.println("Employee created successfully");
         Calendar date = Calendar.getInstance();
-        history.addEmployeeHistory("created", date, e);
+        history.addEmployeeHistory("Created", date, e);
     }
 
     @Override

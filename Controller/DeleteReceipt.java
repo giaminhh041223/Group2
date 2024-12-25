@@ -9,26 +9,23 @@ public class DeleteReceipt implements Option {
 
     @Override
     public void operate(Employee user, Scanner s, Database database, History history) {
-        System.out.println("Enter receipt ID (-1 to show all receipts):");
-        String ID = s.nextLine();
-		boolean checkID=true;
-		while (checkID) {
-			for (Receipt r : database.getReceipts()) {
-				if (ID==r.getID()) {
-					checkID=false;
-					break;
-				}
-			}
-		}
-        // Remove the receipt and associated products
-        database.getReceipts().remove(database.findReceiptById(ID));
-        Calendar date =Calendar.getInstance();
-        history.addReceiptHistory("remove", date, database.findReceiptById(ID));
+        System.out.println("Enter receipt ID to delete:");
+        String ID = s.next();
+
+        Receipt receipt = database.findReceiptById(ID);
+        if (receipt == null) {
+            System.out.println("Receipt not found.");
+            return;
+        }
+
+        database.getReceipts().remove(receipt);
         System.out.println("Receipt deleted successfully.");
+        Calendar date = Calendar.getInstance();
+        history.addReceiptHistory("Deleted", date, receipt);
     }
 
     @Override
     public String getOption() {
-        return "Remove Receipt";
+        return "Delete Receipt";
     }
 }

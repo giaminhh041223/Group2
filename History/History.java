@@ -2,7 +2,6 @@ package History;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-
 import Model.Product;
 import Model.Receipt;
 import Model.Employee;
