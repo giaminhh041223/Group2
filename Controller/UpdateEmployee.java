@@ -42,9 +42,9 @@ public class UpdateEmployee {
 		Calendar date = Calendar.getInstance();
 		history.addEmployeeHistory("Update employee's information", date, database.findEmployeeById(ID));
 	}
-	public UpdateEmployee(String ID, Database database, Scanner s, History history) {
+	public UpdateEmployee(Database database, Scanner s, History history) {
 		System.out.println("Enter employee ID (-1 to show all employees):");
-		ID = s.nextLine();
+		String ID = s.nextLine();
 		boolean checkID=true;
 		while (checkID) {
 			for (Employee e : database.getEmployees()) {
