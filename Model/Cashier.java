@@ -20,6 +20,7 @@ public class Cashier extends Employee {
             new ReadReceipt(),
             new ReadMyReceipts(),
             new ChangePassword(),
+            new ExitSystem(),
         };
     }
     
