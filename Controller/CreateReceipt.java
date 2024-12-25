@@ -33,8 +33,8 @@ public class CreateReceipt implements Option {
             Product product = database.findProductById(productID);
             
             if (product == null) {
-                System.out.println("Invalid Product ID. Skipping...");
-                continue;
+                System.out.println("Invalid product ID. Aborting receipt creation.");
+                return;
             }
             
             System.out.println("Enter quantity to purchase:");
