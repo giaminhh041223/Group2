@@ -4,9 +4,6 @@ public class Stationary extends Product {
     private String brand;
     private String stationaryType;
     
-    public Stationary(String ID, String name, double purchasePrice, double sellingPrice, int qty) {
-    	super(ID, name, purchasePrice, sellingPrice, qty);
-    }
     public Stationary(String ID, String name, double purchasePrice, double sellingPrice, int qty,
                       String brand, String stationaryType) {
         super(ID, name, purchasePrice, sellingPrice, qty);

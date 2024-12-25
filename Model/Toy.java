@@ -3,10 +3,6 @@ package Model;
 public class Toy extends Product {
     private String brand;
     private String suitableAge;
-    
-    public Toy(String ID, String name, double purchasePrice, double sellingPrice, int qty) {
-    	super(ID, name, purchasePrice, sellingPrice, qty);
-    }
 
     public Toy(String ID, String name, double purchasePrice, double sellingPrice, int qty,
                String brand, String suitableAge) {
