@@ -1,27 +1,22 @@
 package Controller;
 
 import java.util.ArrayList;
+import History.History;
 import java.util.Scanner;
-import Model.Database;
-import Model.Product;
-import Model.Receipt;
+import Model.*;
+import java.util.Calendar;
 
+public class CreateReceipt implements Option {
 
-public class CreateReceipt {
-    public void execute(Receipt receipt, Database database) {
-        System.out.println("Receipt created successfully with the following products:");
-        receipt.getProducts().forEach(Product::print);
-    }
-
-    public void oper(Scanner s, Database database) {
+    public void operate(Employee user, Scanner s, Database database, History history) {
         ArrayList<Product> products = new ArrayList<>();
         double total = 0;
 
         System.out.println("Add products to the receipt (Enter -1 to finish):");
         while (true) {
             System.out.println("Enter product ID:");
-            int id = s.nextInt();
-            if (id == -1) break;
+            String id = s.next();
+            if (id == "-1") break;
 
             Product product = database.findProductById(id);
             if (product == null) {
@@ -37,17 +32,26 @@ public class CreateReceipt {
             }
 
             product.setQty(product.getQty() - qty);
-            Product purchasedProduct = new Product(product.getID(), product.getName(), product.getDescription(), product.getPrice(), qty);
+            Product purchasedProduct = new Product();
+            purchasedProduct.setID(product.getID());
+            purchasedProduct.setName(product.getName());
+            purchasedProduct.setPurchasePrice(product.getPurchasePrice());
+            purchasedProduct.setSellingPrice(product.getSellingPrice());
+            purchasedProduct.setQty(product.getQty());
             products.add(purchasedProduct);
-            total += product.getPrice() * qty;
+            total += product.getSellingPrice() * qty;
         }
 
         System.out.println("Total amount: " + total);
-
         Receipt receipt = new Receipt();
         receipt.setProducts(products);
         receipt.setTotal(total);
-
-        execute(receipt, database);
+        Calendar cur= Calendar.getInstance();
+        history.addReceiptHistory("execute", cur, receipt);
+        System.out.println("Receipt created successfully with the following products:");
+        receipt.getProducts().forEach(Product::print);
+    }
+    public String getOption() {
+        return "Add New Receipt";
     }
 }
