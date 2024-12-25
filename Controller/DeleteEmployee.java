@@ -9,30 +9,21 @@ import Model.Employee;
 import Model.Option;
 
 public class DeleteEmployee implements Option {
-	public void deleteEmployee(String ID,Database database) {
-		database.getEmployees().remove(database.findEmployeeById(ID));
-	}
 
 	@Override
-	public void operate(Employee user, Scanner s, Database database,History history) {
-		System.out.println("Enter employee ID (-1 to show all employees):");
+	public void operate(Employee user, Scanner s, Database database, History history) {
+		System.out.println("Enter employee ID to delete:");
 		String ID = s.nextLine();
-		boolean checkID=true;
-		while (checkID) {
-			for (Employee e : database.getEmployees()) {
-				if (ID==e.getID()) {
-					checkID=false;
-					break;
-				}
-			}
-			new ReadAllEmployees(database);
-			System.out.println("Enter employee ID (-1 to show all employees):");
-			ID = s.nextLine();
-			
+
+		Employee e = database.findEmployeeById(ID);
+		if (e == null) {
+			System.out.println("Employee not found.");
+			return;
 		}
+		database.getEmployees().remove(e);
+		System.out.println("Employee deleted successfully.");
 		Calendar date = Calendar.getInstance();
-		history.addEmployeeHistory("Remove", date, database.findEmployeeById(ID));
-		deleteEmployee(ID, database);
+		history.addEmployeeHistory("Fired", date, e);
 	}
 
 	@Override

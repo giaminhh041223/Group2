@@ -1,57 +1,60 @@
 package Controller;
 
 import java.util.ArrayList;
-import History.History;
-import java.util.Scanner;
-import Model.*;
 import java.util.Calendar;
+import java.util.Scanner;
+import History.*;
+import Model.*;
 
 public class CreateReceipt implements Option {
 
+    @Override
     public void operate(Employee user, Scanner s, Database database, History history) {
-        ArrayList<Product> products = new ArrayList<>();
-        double total = 0;
-
-        System.out.println("Add products to the receipt (Enter -1 to finish):");
-        while (true) {
-            System.out.println("Enter product ID:");
-            String id = s.next();
-            if (id == "-1") break;
-
-            Product product = database.findProductById(id);
-            if (product == null) {
-                System.out.println("Product not found.");
-                continue;
-            }
-
-            System.out.println("Enter quantity:");
-            int qty = s.nextInt();
-            if (qty > product.getQty()) {
-                System.out.println("Not enough stock available.");
-                continue;
-            }
-
-            product.setQty(product.getQty() - qty);
-            Product purchasedProduct = new Product();
-            purchasedProduct.setID(product.getID());
-            purchasedProduct.setName(product.getName());
-            purchasedProduct.setPurchasePrice(product.getPurchasePrice());
-            purchasedProduct.setSellingPrice(product.getSellingPrice());
-            purchasedProduct.setQty(product.getQty());
-            products.add(purchasedProduct);
-            total += product.getSellingPrice() * qty;
+        System.out.println("Enter Receipt ID:");
+        String ID = s.next();
+        
+        System.out.println("Enter Cashier ID:");
+        String cashierID = s.next();
+        Employee cashier = database.findEmployeeById(cashierID);
+        
+        if (cashier == null || !(cashier instanceof Cashier)) {
+            System.out.println("Invalid cashier ID.");
+            return;
         }
-
-        System.out.println("Total amount: " + total);
-        Receipt receipt = new Receipt();
-        receipt.setProducts(products);
-        receipt.setTotal(total);
-        Calendar cur= Calendar.getInstance();
-        history.addReceiptHistory("execute", cur, receipt);
-        System.out.println("Receipt created successfully with the following products:");
-        receipt.getProducts().forEach(Product::print);
+        
+        ArrayList<Product> products = new ArrayList<>();
+        System.out.println("Enter number of products:");
+        int productCount = s.nextInt();
+        
+        for (int i = 0; i < productCount; i++) {
+            System.out.println("Enter Product ID:");
+            String productID = s.next();
+            Product product = database.findProductById(productID);
+            
+            if (product == null) {
+                System.out.println("Invalid Product ID. Skipping...");
+                continue;
+            }
+            products.add(product);
+        }
+        
+        System.out.println("Enter total amount:");
+        double total = s.nextDouble();
+        System.out.println("Enter payment type (1 for Cash, 2 for Visa):");
+        int payment = s.nextInt();
+        System.out.println("Enter amount paid:");
+        double paid = s.nextDouble();
+        
+        double change = paid - total;
+        Receipt receipt = new Receipt(ID, cashier, products, total, payment, paid, change);
+        database.getReceipts().add(receipt);
+        System.out.println("Receipt created successfully.");
+        Calendar date = Calendar.getInstance();
+        history.addReceiptHistory("Created", date, receipt);
     }
+
+    @Override
     public String getOption() {
-        return "Add New Receipt";
+        return "Create New Receipt";
     }
 }
