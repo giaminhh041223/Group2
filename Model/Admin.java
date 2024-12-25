@@ -1,10 +1,8 @@
 package Model;
-
-import java.util.ArrayList;
-
 import Controller.*;
 
 public class Admin extends Employee {
+    
     public Admin() {
         generateOptions();
     }

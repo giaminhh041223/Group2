@@ -1,14 +1,9 @@
 package Controller;
 
 import java.util.ArrayList;
-
 import History.History;
 import java.util.Scanner;
-import Model.Database;
-import Model.Employee;
-import Model.Option;
-import Model.Product;
-import Model.Receipt;
+import Model.*;
 import java.util.Calendar;
 
 public class CreateReceipt implements Option {
@@ -37,7 +32,7 @@ public class CreateReceipt implements Option {
             }
 
             product.setQty(product.getQty() - qty);
-            Product purchasedProduct = null;
+            Product purchasedProduct = new Product();
             purchasedProduct.setID(product.getID());
             purchasedProduct.setName(product.getName());
             purchasedProduct.setPurchasePrice(product.getPurchasePrice());

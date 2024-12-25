@@ -2,9 +2,7 @@ package Controller;
 
 import java.util.Calendar;
 import java.util.Scanner;
-import Model.Database;
-import Model.Employee;
-import Model.Option;
+import Model.*;
 import History.History;
 
 public class ChangePassword implements Option {

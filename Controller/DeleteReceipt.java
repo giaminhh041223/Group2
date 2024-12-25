@@ -2,18 +2,13 @@ package Controller;
 
 import java.util.Calendar;
 import java.util.Scanner;
-import java.util.stream.Collectors;
-
 import History.History;
-import Model.Database;
-import Model.Employee;
-import Model.Option;
-import Model.Receipt;
+import Model.*;
 
 public class DeleteReceipt implements Option {
 
     @Override
-    public void operate(Employee user, Scanner s, Database database,History history) {
+    public void operate(Employee user, Scanner s, Database database, History history) {
         System.out.println("Enter receipt ID (-1 to show all receipts):");
         String ID = s.nextLine();
 		boolean checkID=true;

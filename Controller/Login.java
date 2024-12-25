@@ -1,14 +1,8 @@
 package Controller;
 
 import java.util.Scanner;
-
 import History.History;
-import Model.Admin;
-import Model.Cashier;
-import Model.Database;
-import Model.Employee;
-import Model.Option;
-import Model.Storekeeper;
+import Model.*;
 
 public class Login implements Option {
 
@@ -16,17 +10,19 @@ public class Login implements Option {
     private boolean loggedIn;
     
     public void operate(Employee user, Scanner s, Database database,History history) {
-		System.out.println("Welcome to supermarket management system");
+		System.out.println("Welcome to HUST book store management system");
 		System.out.println("Enter your email:");
 		String email = s.next();
 		System.out.println("Enter your password:");
 		String password = s.next();
 		Controller.Login login = new Controller.Login(email, password, database);
+
 		if (login.isLoggedIn()) {
 			Employee employee = login.getUser();
-			System.out.println("Welcome "+employee.getName());
+			System.out.println("Welcome "+ employee.getName());
 			employee.showList(s, database,history);
-		} else {
+		} 
+        else {
 			System.out.println("Wrong email or password!");
 			System.out.println("Try agin later");
 		}
@@ -37,7 +33,7 @@ public class Login implements Option {
         for (Employee e : database.getEmployees()) {
             if (e.getEmail().equals(email) && e.getPassword().equals(password)) {
                 this.loggedIn = true;
-                employee=e;
+                employee = e;
                 e.generateOptions();
                 break;
             }
@@ -45,7 +41,7 @@ public class Login implements Option {
     }
 
     public Login() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public boolean isLoggedIn() {

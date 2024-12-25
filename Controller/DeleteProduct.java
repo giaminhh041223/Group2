@@ -1,14 +1,9 @@
 package Controller;
 
-import java.lang.ModuleLayer.Controller;
 import java.util.Calendar;
 import java.util.Scanner;
-
 import History.History;
-import Model.Database;
-import Model.Employee;
-import Model.Option;
-import Model.Product;
+import Model.*;
 
 public class DeleteProduct implements Option {
 	public void deleteProduct(String ID,Database database) {

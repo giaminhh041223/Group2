@@ -1,7 +1,5 @@
 package Model;
 
-import Controller.CreateEmployee;
-
 public class Cashier extends Employee {
 	
     public Cashier() {
@@ -25,6 +23,7 @@ public class Cashier extends Employee {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
+    
 	public int getDepartment() {
 		return 1;
 	}

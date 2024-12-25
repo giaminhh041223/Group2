@@ -7,6 +7,9 @@ public abstract class Product {
     protected double sellingPrice;
     protected int qty;
 
+    public Product() {
+    }
+
     public Product(String ID, String name, double purchasePrice, double sellingPrice, int qty) {
         this.ID = ID;
         this.name = name;

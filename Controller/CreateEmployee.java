@@ -1,16 +1,9 @@
 package Controller;
 
 import java.util.Calendar;
-
 import java.util.Scanner;
-
 import History.History;
-import Model.Admin;
-import Model.Cashier;
-import Model.Database;
-import Model.Employee;
-import Model.Option;
-import Model.Storekeeper;
+import Model.*;
 
 public class CreateEmployee implements Option {
 
@@ -20,8 +13,6 @@ public class CreateEmployee implements Option {
         String name = s.next();
         System.out.println("Enter email:");
         String email = s.next();
-        System.out.println("Enter address:");
-        String address = s.next();
         System.out.println("Enter ID:");
         String ID = s.nextLine();
         System.out.println("Enter password:");
@@ -29,7 +20,8 @@ public class CreateEmployee implements Option {
         System.out.println("Enter department");
         int department = s.nextInt();
         System.out.println("Enter salary");
-        double salary=s.nextDouble();
+        double salary = s.nextDouble();
+
         Employee e;
 		switch (department) {
 		case 0:
