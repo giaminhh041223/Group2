@@ -1,5 +1,6 @@
-import java.util.Scanner;
+package Store;
 
+import java.util.Scanner;
 import Controller.*;
 import History.History;
 import Model.*;
