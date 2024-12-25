@@ -8,7 +8,7 @@ import java.util.Calendar;
 
 public class CreateReceipt implements Option {
 
-    public void operate(Employee user, Scanner s, Database database,History history) {
+    public void operate(Employee user, Scanner s, Database database, History history) {
         ArrayList<Product> products = new ArrayList<>();
         double total = 0;
 

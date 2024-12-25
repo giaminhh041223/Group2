@@ -2,7 +2,7 @@ package Model;
 import Controller.*;
 
 public class Admin extends Employee {
-    
+
     public Admin() {
         generateOptions();
     }
@@ -15,8 +15,15 @@ public class Admin extends Employee {
     public void generateOptions() {
         this.options = new Option[] {
             new CreateEmployee(),
+            new CreateProduct(),
+            new DeleteEmployee(),
+            new DeleteProduct(),
+            new ChangePassword(),
+            new ReadAllEmployees(),
+            new ReadAllProducts(),
         };
     }
+
 	public int getDepartment() {
 		return 0;
 	}

@@ -33,10 +33,9 @@ public class CreateEmployee implements Option {
 		case 2:
 			e = new Storekeeper();
 			break;
-			default:
-				System.out.println("Invalid department");
-				e = new Cashier();
-				break;
+		default:
+			System.out.println("Invalid department");
+			return;
 		}
         e.setName(name);
         e.setEmail(email);

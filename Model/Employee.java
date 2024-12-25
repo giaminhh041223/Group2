@@ -1,7 +1,6 @@
 package Model;
 
 import java.util.Scanner;
-
 import History.History;
 
 public abstract class Employee {
