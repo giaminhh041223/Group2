@@ -15,12 +15,20 @@ public class Admin extends Employee {
     public void generateOptions() {
         this.options = new Option[] {
             new CreateEmployee(),
-            new CreateProduct(),
-            new DeleteEmployee(),
-            new DeleteProduct(),
-            new ChangePassword(),
             new ReadAllEmployees(),
+            new UpdateEmployee(),
+            new DeleteEmployee(),
+            new CreateProduct(),
             new ReadAllProducts(),
+            new ReadAllProductsByType(),
+            new UpdateProduct(),
+            new DeleteProduct(),
+            new CreateReceipt(),
+            new ReadMyReceipts(),
+            new ReadReceipt(),
+            new ReadAllReceipts(),
+            new ReadCashierReceipts(),
+            new ChangePassword(),
         };
     }
 
