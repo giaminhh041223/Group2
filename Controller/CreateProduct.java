@@ -33,13 +33,25 @@ public class CreateProduct implements Option {
         Product product;
         switch (type) {
             case "Stationary":
-                product = new Stationary(ID, name, purchasePrice, sellingPrice, qty);
+                System.out.println("Enter brand:");
+                String stationaryBrand = s.next();
+                System.out.println("Enter stationary type:");
+                String stationaryType = s.next();
+                product = new Stationary(ID, name, purchasePrice, sellingPrice, qty, stationaryBrand, stationaryType);
                 break;
             case "Toy":
-                product = new Toy(ID, name, purchasePrice, sellingPrice, qty);
+                System.out.println("Enter brand:");
+                String toyBrand = s.next();
+                System.out.println("Enter suitable age:");
+                String suitableAge = s.next();
+                product = new Toy(ID, name, purchasePrice, sellingPrice, qty, toyBrand, suitableAge);
                 break;
             case "Book":
-                product = new Book(ID, name, purchasePrice, sellingPrice, qty);
+                System.out.println("Enter publisher:");
+                String publisher = s.next();
+                System.out.println("Enter author:");
+                String author = s.next();
+                product = new Book(ID, name, purchasePrice, sellingPrice, qty, publisher, author);
                 break;
             default:
                 System.out.println("Invalid product type.");
