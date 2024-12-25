@@ -15,23 +15,31 @@ public class CreateProduct implements Option {
         System.out.println("Enter type");
         String type = s.next();
         System.out.println("Enter product purchase price:");
-        double purchaseprice = s.nextDouble();
+        double purchasePrice = s.nextDouble();
         System.out.println("Enter product selling price:");
-        double sellingprice = s.nextDouble();
+        double sellingPrice = s.nextDouble();
         System.out.println("Enter product quantity:");
         int qty = s.nextInt();
 
-        Product product;
+        Product existingProduct = database.findProductById(ID);
+        if (existingProduct != null &&
+            existingProduct.getName().equals(name) &&
+            existingProduct.getPurchasePrice() == purchasePrice &&
+            existingProduct.getSellingPrice() == sellingPrice) {
+            System.out.println("Product with same details already exists. Use UpdateProduct to modify quantity.");
+            return;
+        }
 
+        Product product;
         switch (type) {
             case "Stationary":
-                product = new Stationary(ID, name, purchaseprice, sellingprice, qty);
+                product = new Stationary(ID, name, purchasePrice, sellingPrice, qty);
                 break;
             case "Toy":
-                product = new Toy(ID, name, purchaseprice, sellingprice, qty);
+                product = new Toy(ID, name, purchasePrice, sellingPrice, qty);
                 break;
             case "Book":
-                product = new Book(ID, name, purchaseprice, sellingprice, qty);
+                product = new Book(ID, name, purchasePrice, sellingPrice, qty);
                 break;
             default:
                 System.out.println("Invalid product type.");

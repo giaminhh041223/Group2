@@ -25,7 +25,8 @@ public class CreateReceipt implements Option {
         ArrayList<Product> products = new ArrayList<>();
         System.out.println("Enter number of products:");
         int productCount = s.nextInt();
-        
+
+        double total = 0;
         for (int i = 0; i < productCount; i++) {
             System.out.println("Enter Product ID:");
             String productID = s.next();
@@ -35,11 +36,27 @@ public class CreateReceipt implements Option {
                 System.out.println("Invalid Product ID. Skipping...");
                 continue;
             }
-            products.add(product);
+            
+            System.out.println("Enter quantity to purchase:");
+            int qty = s.nextInt();
+            if (qty > product.getQty()) {
+                System.out.println("Insufficient stock. Skipping...");
+                continue;
+            }
+
+            if (qty <= 0) {
+                System.out.println("Invalid quantity. Skipping...");
+                continue;
+            }
+
+            Product purchasedProduct = product;
+            purchasedProduct.setQty(qty);
+
+            product.setQty(product.getQty() - qty);
+            products.add(purchasedProduct);
+            total += purchasedProduct.getSellingPrice() * qty;
         }
-        
-        System.out.println("Enter total amount:");
-        double total = s.nextDouble();
+
         System.out.println("Enter payment type (1 for Cash, 2 for Visa):");
         int payment = s.nextInt();
         System.out.println("Enter amount paid:");

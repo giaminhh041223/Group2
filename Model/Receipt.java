@@ -22,10 +22,6 @@ public class Receipt {
 		this.change = change;
 	}
 
-    public Receipt() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public String getID() {
         return ID;
     }

@@ -113,8 +113,8 @@ public abstract class Employee {
 		System.out.println("-----------------------");
 		
 		int selected = s.nextInt();
-		options[selected-1].operate(this, s, database,history);
-		showList(s, database,history);
+		options[selected-1].operate(this, s, database, history);
+		showList(s, database, history);
 	}
 	
 }
