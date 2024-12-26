@@ -18,15 +18,6 @@ public class CreateReceipt implements Option {
             return;
         }
         
-        System.out.println("Enter Cashier ID:");
-        String cashierID = s.next();
-        Employee cashier = database.findEmployeeById(cashierID);
-        
-        if (cashier == null || (cashier instanceof Storekeeper)) {
-            System.out.println("Invalid cashier ID.");
-            return;
-        }
-        
         ArrayList<Product> products = new ArrayList<>();
         System.out.println("Enter number of products:");
         int productCount = s.nextInt();
@@ -88,7 +79,7 @@ public class CreateReceipt implements Option {
         }
 
         double change = paid - total;
-        Receipt receipt = new Receipt(ID, cashier, products, total, payment, paid, change);
+        Receipt receipt = new Receipt(ID, user, products, total, payment, paid, change);
         database.getReceipts().add(receipt);
         System.out.println("Receipt created successfully.");
         Calendar date = Calendar.getInstance();
