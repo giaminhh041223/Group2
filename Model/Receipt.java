@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Receipt {
     private String ID;
@@ -10,6 +11,7 @@ public class Receipt {
     private int payment;
 	private double paid;
 	private double change;
+	private Date date;
 
     public Receipt(String ID, Employee cashier, ArrayList<Product> products,
 			double total, int payment, double paid, double change) {
@@ -20,6 +22,7 @@ public class Receipt {
 		this.payment = payment;
 		this.paid = paid;
 		this.change = change;
+		this.date = new Date();
 	}
 
 	public String getID() {
@@ -76,6 +79,10 @@ public class Receipt {
 	
 	public void setChange(double change) {
 		this.change = change;
+	}
+	
+	public Date getDate() {
+		return date;
 	}
 	
 	public String getPaymentToString() {
