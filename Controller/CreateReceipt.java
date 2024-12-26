@@ -17,7 +17,7 @@ public class CreateReceipt implements Option {
         String cashierID = s.next();
         Employee cashier = database.findEmployeeById(cashierID);
         
-        if (cashier == null || !(cashier instanceof Cashier)) {
+        if (cashier == null || (cashier instanceof Storekeeper)) {
             System.out.println("Invalid cashier ID.");
             return;
         }
