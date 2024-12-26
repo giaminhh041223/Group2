@@ -22,12 +22,12 @@ public class Stationary extends Product {
     @Override
     public void print() {
         System.out.println("-------------------------");
-        System.out.println("ID:\t\t" + getID());
-        System.out.println("Name:\t\t" + getName());
-        System.out.println("Selling Price:\t\t" + getSellingPrice());
-        System.out.println("Qty:\t\t" + getQty());
-        System.out.println("Brand:\t\t" + getBrand());
-        System.out.println("Stationary Type:\t\t" + getStationaryType());
+        System.out.println("ID: " + getID());
+        System.out.println("Name: " + getName());
+        System.out.println("Selling Price: " + getSellingPrice());
+        System.out.println("Qty: " + getQty());
+        System.out.println("Brand: " + getBrand());
+        System.out.println("Stationary Type: " + getStationaryType());
         System.out.println("-------------------------");
     }
 }
