@@ -15,6 +15,12 @@ public class CreateEmployee implements Option {
         String email = s.next();
         System.out.println("Enter ID:");
         String ID = s.nextLine();
+
+        if (database.findEmployeeById(ID) != null) {
+            System.out.println("Employee ID already exists.");
+            return;
+        }
+        
         System.out.println("Enter password:");
         String password = s.next();
         System.out.println("Enter department");

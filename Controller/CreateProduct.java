@@ -12,6 +12,12 @@ public class CreateProduct implements Option {
         String name = s.next();
         System.out.println("Enter product ID:");
         String ID = s.next();
+
+        if (database.findProductById(ID) != null) {
+            System.out.println("Product ID already exists. Use UpdateProduct to modify quantity.");
+            return;
+        }
+
         System.out.println("Enter type");
         String type = s.next();
         System.out.println("Enter product purchase price:");
@@ -20,15 +26,6 @@ public class CreateProduct implements Option {
         double sellingPrice = s.nextDouble();
         System.out.println("Enter product quantity:");
         int qty = s.nextInt();
-
-        Product existingProduct = database.findProductById(ID);
-        if (existingProduct != null &&
-            existingProduct.getName().equals(name) &&
-            existingProduct.getPurchasePrice() == purchasePrice &&
-            existingProduct.getSellingPrice() == sellingPrice) {
-            System.out.println("Product with same details already exists. Use UpdateProduct to modify quantity.");
-            return;
-        }
 
         Product product;
         switch (type) {
