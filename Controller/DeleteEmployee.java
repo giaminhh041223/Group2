@@ -13,7 +13,7 @@ public class DeleteEmployee implements Option {
 	@Override
 	public void operate(Employee user, Scanner s, Database database, History history) {
 		System.out.println("Enter employee ID to delete:");
-		String ID = s.nextLine();
+		String ID = s.next();
 
 		Employee e = database.findEmployeeById(ID);
 		if (e == null) {
