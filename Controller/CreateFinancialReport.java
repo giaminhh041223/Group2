@@ -1,53 +1,67 @@
 package Controller;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.List;
-import java.util.Scanner;
-
-import History.History;
+import History.*;
 import Model.*;
+import java.util.*;
 
 public class CreateFinancialReport implements Option {
+
     @Override
     public void operate(Employee user, Scanner s, Database database, History history) {
-        System.out.println("Generating financial report for the past month...");
 
-        List<Receipt> receipts = database.getReceipts();
-        if (receipts.isEmpty()) {
-            System.out.println("No receipts available for the report.");
-            return;
+        System.out.println("Enter the month (1-12) for the report:");
+        int month = s.nextInt();
+        System.out.println("Enter the year for the report:");
+        int year = s.nextInt();
+
+        double revenue = calculateRevenue(database, month, year);
+        double netProfit = calculateNetProfit(database, month, year);
+        double totalSalaries = calculateEmployeeSalaries(database);
+
+        System.out.println("Financial Report for " + month + "/" + year + ":");
+        System.out.println("-------------------------------------------");
+        System.out.println("1. Revenue: " + revenue);
+        System.out.println("2. Net Profit: " + netProfit);
+        System.out.println("3. Total Employee Salaries: " + totalSalaries);
+        System.out.println("-------------------------------------------");
+    }
+
+    private double calculateRevenue(Database database, int month, int year) {
+        double revenue = 0;
+        for (Receipt receipt : database.getReceipts()) {
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(receipt.getDate()); // Assuming Receipt has a getDate() method
+            if (cal.get(Calendar.MONTH) + 1 == month && cal.get(Calendar.YEAR) == year) {
+                revenue += receipt.getTotal();
+            }
         }
+        return revenue;
+    }
 
-        double totalIncome = 0;
-        double totalExpenses = 0;
-
-        LocalDate today = LocalDate.now();
-        LocalDate oneMonthAgo = today.minusMonths(1);
-
-        for (Receipt receipt : receipts) {
-            LocalDate receiptDate = receipt.getDate().getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-            if (!receiptDate.isBefore(oneMonthAgo) && !receiptDate.isAfter(today)) {
-                totalIncome += receipt.getTotal();
+    private double calculateNetProfit(Database database, int month, int year) {
+        double netProfit = 0;
+        for (Receipt receipt : database.getReceipts()) {
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(receipt.getDate()); // Assuming Receipt has a getDate() method
+            if (cal.get(Calendar.MONTH) + 1 == month && cal.get(Calendar.YEAR) == year) {
                 for (Product product : receipt.getProducts()) {
-                    totalExpenses += product.getPurchasePrice() * product.getQty();
+                    netProfit += product.getPurchasePrice() * product.getQty();
                 }
             }
         }
+        return netProfit;
+    }
 
-        if (totalIncome > 0 || totalExpenses > 0) {
-            double netProfit = totalIncome - totalExpenses;
-            System.out.printf("Total Income: %.2f\n", totalIncome);
-            System.out.printf("Total Expenses: %.2f\n", totalExpenses);
-            System.out.printf("Net Profit: %.2f\n", netProfit);
-        } else {
-            System.out.println("No financial activity in the past month.");
+    private double calculateEmployeeSalaries(Database database) {
+        double totalSalaries = 0;
+        for (Employee employee : database.getEmployees()) {
+            totalSalaries += employee.getSalary();
         }
+        return totalSalaries;
     }
 
     @Override
     public String getOption() {
-        return "Generate Financial Report";
+        return "Create Financial Report";
     }
 }
