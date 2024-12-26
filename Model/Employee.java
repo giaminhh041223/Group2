@@ -99,15 +99,15 @@ public abstract class Employee {
 
 	public void print() {
 		System.out.println("--------------------------------");
-		System.out.println("ID:\t\t"+getID());
-		System.out.println("First Name:\t"+getName());
-		System.out.println("Email:\t\t"+getEmail());
-		System.out.println("Department:\t"+getDepartmentToString());
+		System.out.println("ID: "+getID());
+		System.out.println("Name: "+getName());
+		System.out.println("Email: "+getEmail());
+		System.out.println("Department: "+getDepartmentToString());
 	}
 
-	public void showList(Scanner s, Database database,History history) {
+	public void showList(Scanner s, Database database, History history) {
 		System.out.println("-----------------------");
-		for (int i=1;i<=options.length;i++) {
+		for (int i=1; i<=options.length; i++) {
 			System.out.println(i+". "+options[i-1].getOption());
 		}
 		System.out.println("-----------------------");
