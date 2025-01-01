@@ -1,0 +1,63 @@
+package Controller;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Scanner;
+import History.History;
+import Model.*;
+
+public class CreateEmployee implements Option {
+
+    @Override
+    public void operate(Employee user, Scanner s, Database database,History history) {
+        System.out.println("Enter name:");
+        String name = s.next();
+        System.out.println("Enter email:");
+        String email = s.next();
+        System.out.println("Enter ID:");
+        s.next(); // Consume the leftover newline from previous input
+        String ID = s.nextLine();
+
+        if (database.findEmployeeById(ID) != null) {
+            System.out.println("Employee ID already exists.");
+            return;
+        }
+        
+        System.out.println("Enter password:");
+        String password = s.next();
+        System.out.println("Enter department");
+        int department = s.nextInt();
+        System.out.println("Enter salary");
+        double salary = s.nextDouble();
+
+        Employee e;
+		switch (department) {
+		case 0:
+			e = new Admin(ID, name, email, password, salary);
+			break;
+		case 1:
+			e = new Cashier(ID, name, email, password, salary);
+			break;
+		case 2:
+			e = new Storekeeper(ID, name, email, password, salary);
+			break;
+		default:
+			System.out.println("Invalid department");
+			return;
+		}
+        
+        database.getEmployees().add(e);
+        System.out.println("Employee created successfully");
+        Calendar date = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm dd MMMM yyyy");
+
+        // Format the calendar instance
+        String datePrint = formatter.format(date.getTime());
+        history.addEmployeeHistory("Created employee "+ e.getName()+" at "+datePrint, date, e);
+    }
+
+    @Override
+    public String getOption() {
+        return "Add New Employee";
+    }
+}
