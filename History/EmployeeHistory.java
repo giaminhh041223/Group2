@@ -13,10 +13,6 @@ public class EmployeeHistory extends Action {
 
     @Override
     public String toString() {
-        if (!action.startsWith("change password")) {
-            return "Employee " + employee.getName() + " was " + action + "ed at " + date.getTime();
-        } else {
-            return employee.getName() + " " + action;
-        }
+        return action;
     }
 }
