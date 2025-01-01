@@ -9,7 +9,7 @@ public class Login implements Option {
     private Employee employee;
     private boolean loggedIn;
     
-    public void operate(Employee user, Scanner s, Database database, History history) {
+    public void operate(Employee user, Scanner s, Database database, FinancialSystem financialSystem, History history) {
         while (true) {
             System.out.println("Welcome to HUST book store management system");
             System.out.println("Enter your email:");
@@ -21,7 +21,7 @@ public class Login implements Option {
             if (login.isLoggedIn()) {
                 Employee employee = login.getUser();
                 System.out.println("Welcome " + employee.getName());
-                employee.showList(s, database, history);
+                employee.showList(s, database, financialSystem, history);
                 break;
             } else {
                 System.out.println("Wrong email or password!");

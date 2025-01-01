@@ -8,7 +8,7 @@ import History.History;
 public class ChangePassword implements Option {
 
     @Override
-    public void operate(Employee user, Scanner scanner, Database database, History history) {
+    public void operate(Employee user, Scanner scanner, Database database, FinancialSystem financialSystem, History history) {
         System.out.println("Enter old password:");
         String oldPass = scanner.next();
 

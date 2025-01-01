@@ -7,7 +7,7 @@ import Model.*;
 
 public class CreateProduct implements Option {
 
-    public void operate(Employee user, Scanner s, Database database, History history) {
+    public void operate(Employee user, Scanner s, Database database, FinancialSystem financialSystem, History history) {
         System.out.println("Enter product name:");
         String name = s.next();
         System.out.println("Enter product ID:");
@@ -56,6 +56,11 @@ public class CreateProduct implements Option {
         }
 
         database.getProducts().add(product);
+
+        // Cập nhật vốn (trừ đi tiền nhập hàng)
+        double cost = purchasePrice * qty;
+        financialSystem.subtractCost(cost);
+
         System.out.println("Product created successfully");
         Calendar date = Calendar.getInstance();
         history.addProductHistory("Created", date, product, 0);

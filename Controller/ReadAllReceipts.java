@@ -7,7 +7,7 @@ import History.*;
 public class ReadAllReceipts implements Option {
 
     @Override
-    public void operate(Employee user, Scanner s, Database database, History history) {
+    public void operate(Employee user, Scanner s, Database database, FinancialSystem financialSystem, History history) {
         System.out.println("All Receipts:");
         for (Receipt receipt : database.getReceipts()) {
             System.out.println("Receipt ID: " + receipt.getID());

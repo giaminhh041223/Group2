@@ -7,16 +7,21 @@ import java.util.*;
 public class CreateFinancialReport implements Option {
 
     @Override
-    public void operate(Employee user, Scanner s, Database database, History history) {
+    public void operate(Employee user, Scanner s, Database database, FinancialSystem financialSystem, History history) {
 
         System.out.println("Enter the month (1-12) for the report:");
         int month = s.nextInt();
         System.out.println("Enter the year for the report:");
         int year = s.nextInt();
 
+        // Tính toán các chỉ số tài chính
         double revenue = calculateRevenue(database, month, year);
         double costOfGoodsAdded = calculateCostOfGoodsAdded(database, history, month, year);
         double totalSalaries = calculateEmployeeSalaries(database);
+
+        // Trừ lương cuối tháng
+        financialSystem.subtractCost(totalSalaries);
+
         double netProfit = revenue - costOfGoodsAdded - totalSalaries;
 
         System.out.println("Financial Report for " + month + "/" + year + ":");
@@ -24,6 +29,7 @@ public class CreateFinancialReport implements Option {
         System.out.println("1. Revenue: " + revenue);
         System.out.println("2. Net Profit: " + netProfit);
         System.out.println("3. Total Employee Salaries: " + totalSalaries);
+        System.out.println("4.Updated Capital: " + financialSystem.getCapital());
         System.out.println("-------------------------------------------");
     }
 

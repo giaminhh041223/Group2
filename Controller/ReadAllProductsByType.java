@@ -7,7 +7,7 @@ import History.*;
 public class ReadAllProductsByType implements Option {
 
     @Override
-    public void operate(Employee user, Scanner s, Database database, History history) {
+    public void operate(Employee user, Scanner s, Database database, FinancialSystem financialSystem, History history) {
         System.out.println("Enter product type to view (Stationary, Toy, Book):");
         String type = s.next();
 

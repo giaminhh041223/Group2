@@ -8,7 +8,7 @@ import Model.*;
 public class DeleteProduct implements Option {
 
     @Override
-    public void operate(Employee user, Scanner s, Database database, History history) {
+    public void operate(Employee user, Scanner s, Database database, FinancialSystem financialSystem, History history) {
         System.out.println("Enter Product ID to delete:");
         String ID = s.next();
         

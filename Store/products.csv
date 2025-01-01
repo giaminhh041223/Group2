@@ -1,0 +1,16 @@
+ID,Name,PurchasePrice,SellingPrice,Quantity,Type,AdditionalInfo1,AdditionalInfo2
+TOY1,Lego Classic,350000.0,500000.0,50,Toy,LEGO,6+
+TOY2,3-Wheel Scooter,500000.0,700000.0,30,Toy,Globber,12+
+TOY3,Barbie Fashionista Doll,300000.0,450000.0,40,Toy,Mattel,0+
+TOY4,Mini Cooking Playset,150000.0,250000.0,100,Toy,Fisher-Price,6+
+TOY5,Remote-Controlled Robot,800000.0,1200000.0,20,Toy,Xiaomi,12+
+ST1,Thiên Long Ballpoint Pen,2000.0,5000.0,100,Stationary,Thiên Long,Ballpoint Pen
+ST2,Office Notebook,20000.0,35000.0,100,Stationary,Campus,Notebook
+ST3,Paper Cutting Scissors,10000.0,25000.0,30,Stationary,Deli,Scissors
+ST4,Transparent Tape 5cm x 100m,8000.0,18000.0,200,Stationary,Scotch,Tape
+ST5,Whiteboard Marker,5000.0,12000.0,50,Stationary,Thiên Long,Marker
+BK1,Harry Potter and the Philosopher's Stone,100000.0,150000.0,200,Book,Bloomsbury,J.K.Rowling
+BK2,How to Win Friends and Influence People,60000.0,90000.0,300,Book,First News,Dale Carnegie
+BK3,Sapiens: A Brief History of Humankind,140000.0,200000.0,150,Book,HarperCollins,Yuval Noah Harari
+BK4,The Diary of Anne Frank,80000.0,120000.0,100,Book,Bantam,Anne Frank
+BK5,Outliers,130000.0,180000.0,120,Book,Brown and Company,Malcolm Gladwell

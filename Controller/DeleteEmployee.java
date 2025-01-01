@@ -5,12 +5,13 @@ import java.util.Scanner;
 import History.History;
 import Model.Database;
 import Model.Employee;
+import Model.FinancialSystem;
 import Model.Option;
 
 public class DeleteEmployee implements Option {
 
 	@Override
-	public void operate(Employee user, Scanner s, Database database, History history) {
+	public void operate(Employee user, Scanner s, Database database, FinancialSystem financialSystem, History history) {
 		System.out.println("Enter employee ID to delete:");
 		String ID = s.next();
 

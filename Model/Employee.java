@@ -105,7 +105,7 @@ public abstract class Employee {
 		System.out.println("Department: "+getDepartmentToString());
 	}
 
-	public void showList(Scanner s, Database database, History history) {
+	public void showList(Scanner s, Database database, FinancialSystem financialSystem, History history) {
 		System.out.println("-----------------------");
 		for (int i=1; i<=options.length; i++) {
 			System.out.println(i+". "+options[i-1].getOption());
@@ -113,8 +113,8 @@ public abstract class Employee {
 		System.out.println("-----------------------");
 		
 		int selected = s.nextInt();
-		options[selected-1].operate(this, s, database, history);
-		showList(s, database, history);
+		options[selected-1].operate(this, s, database, financialSystem, history);
+		showList(s, database, financialSystem, history);
 	}
 	
 }

@@ -7,7 +7,7 @@ import History.*;
 public class ViewHistory implements Option {
 
     @Override
-    public void operate(Employee user, Scanner s, Database database, History history) {
+    public void operate(Employee user, Scanner s, Database database, FinancialSystem financialSystem, History history) {
         while (true) {
             System.out.println("History Options:");
             System.out.println("1. View Employee History");

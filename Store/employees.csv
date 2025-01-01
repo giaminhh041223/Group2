@@ -1,0 +1,6 @@
+ID,Name,Email,Password,Salary,Type
+A001,Alice Johnson,alice.johnson@example.com,adminPass123,10000000,Admin
+C001,John Doe,john.doe@example.com,cashierPass123,5000000,Cashier
+C002,Emily Davis,emily.davis@example.com,cashierPass456,5000000,Cashier
+S001,Jane Smith,jane.smith@example.com,securePass123,3000000,Storekeeper
+S002,Micheal Brown,micheal.brown@example.com,securePass456,3000000,Storekeeper

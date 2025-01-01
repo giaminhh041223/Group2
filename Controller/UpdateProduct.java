@@ -8,7 +8,7 @@ import History.*;
 public class UpdateProduct implements Option {
 
     @Override
-    public void operate(Employee user, Scanner s, Database database, History history) {
+    public void operate(Employee user, Scanner s, Database database, FinancialSystem financialSystem, History history) {
         System.out.println("Enter product ID to update:");
         String ID = s.next();
 
@@ -45,6 +45,11 @@ public class UpdateProduct implements Option {
         System.out.println("Enter new quantity (-1 to keep current: " + product.getQty() + "):");
         int qty = s.nextInt();
         if (qty != -1) {
+            if (qty > previousQuantity) {
+                int addedQuantity = qty - previousQuantity;
+                double cost = addedQuantity * product.getPurchasePrice();
+                financialSystem.subtractCost(cost); // Cập nhật số vốn
+            }
             product.setQty(qty);
             isUpdate = true;
         }

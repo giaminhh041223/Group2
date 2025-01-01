@@ -7,7 +7,7 @@ import Model.*;
 public class ReadAllEmployees implements Option {
 
     @Override
-    public void operate(Employee user, Scanner s, Database database, History history) {
+    public void operate(Employee user, Scanner s, Database database, FinancialSystem financialSystem, History history) {
         System.out.println("Employee List:");
         for (Employee e : database.getEmployees()) {
             e.print();
