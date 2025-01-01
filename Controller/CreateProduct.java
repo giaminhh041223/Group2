@@ -18,14 +18,14 @@ public class CreateProduct implements Option {
             return;
         }
 
-        System.out.println("Enter type");
-        String type = s.next();
         System.out.println("Enter product purchase price:");
         double purchasePrice = s.nextDouble();
         System.out.println("Enter product selling price:");
         double sellingPrice = s.nextDouble();
         System.out.println("Enter product quantity:");
         int qty = s.nextInt();
+        System.out.println("Enter type (Stationary, Toy, Book)");
+        String type = s.next();
 
         Product product;
         switch (type) {
@@ -58,7 +58,7 @@ public class CreateProduct implements Option {
         database.getProducts().add(product);
         System.out.println("Product created successfully");
         Calendar date = Calendar.getInstance();
-        history.addProductHistory(type, date, product);
+        history.addProductHistory("Create", date, product);
     }
     public String getOption() {
         return "Add New Product";

@@ -43,7 +43,7 @@ public class UpdateProduct implements Option {
         }
 
         Calendar date = Calendar.getInstance();
-        history.addProductHistory("Updated", date, product);
+        history.addProductHistory("Update", date, product);
         System.out.println("Product updated successfully.");
     }
 

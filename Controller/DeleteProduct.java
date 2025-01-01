@@ -21,7 +21,7 @@ public class DeleteProduct implements Option {
         database.getProducts().remove(product);
         System.out.println("Product deleted successfully.");
 		Calendar date = Calendar.getInstance();
-        history.addProductHistory("Deleted", date, product);
+        history.addProductHistory("Delete", date, product);
     }
 
     @Override

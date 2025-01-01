@@ -13,14 +13,6 @@ public class ProductHistory extends Action {
 	}
 
 	public String toString() {
-		if (action=="add") {
-			return "product "+ product.getName()+" "+action+"ed at "+date.getTime();
-		}else if (action=="remove") {
-			return "product "+ product.getName()+" "+action+"ed at "+date.getTime();
-		}else {
-			return "product "+ product.getName()+" "+" sold at "+date.getTime();
-		}
+		return "Product "+ product.getName() +" "+ action +"d at "+ date.getTime();
 	}
-	
 }
- 

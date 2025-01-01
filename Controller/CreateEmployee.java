@@ -14,7 +14,7 @@ public class CreateEmployee implements Option {
         System.out.println("Enter email:");
         String email = s.next();
         System.out.println("Enter ID:");
-        String ID = s.nextLine();
+        String ID = s.next();
 
         if (database.findEmployeeById(ID) != null) {
             System.out.println("Employee ID already exists.");
@@ -47,7 +47,7 @@ public class CreateEmployee implements Option {
         database.getEmployees().add(e);
         System.out.println("Employee created successfully");
         Calendar date = Calendar.getInstance();
-        history.addEmployeeHistory("Created", date, e);
+        history.addEmployeeHistory("Create", date, e);
     }
 
     @Override

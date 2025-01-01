@@ -21,7 +21,7 @@ public class DeleteReceipt implements Option {
         database.getReceipts().remove(receipt);
         System.out.println("Receipt deleted successfully.");
         Calendar date = Calendar.getInstance();
-        history.addReceiptHistory("Deleted", date, receipt);
+        history.addReceiptHistory("Delete", date, receipt);
     }
 
     @Override
