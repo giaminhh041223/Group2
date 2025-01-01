@@ -35,6 +35,7 @@ public class Admin extends Employee {
         };
     }
 
+    @Override
 	public int getDepartment() {
 		return 0;
 	}

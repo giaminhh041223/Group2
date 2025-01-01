@@ -7,6 +7,7 @@ import Model.*;
 
 public class CreateProduct implements Option {
 
+    @Override
     public void operate(Employee user, Scanner s, Database database, FinancialSystem financialSystem, History history) {
         System.out.println("Enter product name:");
         String name = s.next();
