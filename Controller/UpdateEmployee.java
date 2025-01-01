@@ -37,7 +37,7 @@ public class UpdateEmployee implements Option {
         }
 
         Calendar date = Calendar.getInstance();
-        history.addEmployeeHistory("Update", date, emp);
+        history.addEmployeeHistory("Updated", date, emp);
         System.out.println("Employee updated successfully.");
     }
 

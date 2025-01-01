@@ -18,33 +18,43 @@ public class UpdateProduct implements Option {
             return;
         }
 
+        int previousQuantity = product.getQty();
+        boolean isUpdate = false;
+
         System.out.println("Enter new name (-1 to keep current: " + product.getName() + "):");
         String name = s.next();
         if (!name.equals("-1")) {
             product.setName(name);
+            isUpdate = true;
         }
 
         System.out.println("Enter new purchase price (-1 to keep current: " + product.getPurchasePrice() + "):");
         double purchasePrice = s.nextDouble();
         if (purchasePrice != -1) {
             product.setPurchasePrice(purchasePrice);
+            isUpdate = true;
         }
 
         System.out.println("Enter new selling price (-1 to keep current: " + product.getSellingPrice() + "):");
         double sellingPrice = s.nextDouble();
         if (sellingPrice != -1) {
             product.setSellingPrice(sellingPrice);
+            isUpdate = true;
         }
 
         System.out.println("Enter new quantity (-1 to keep current: " + product.getQty() + "):");
         int qty = s.nextInt();
         if (qty != -1) {
             product.setQty(qty);
+            isUpdate = true;
         }
 
-        Calendar date = Calendar.getInstance();
-        history.addProductHistory("Update", date, product);
-        System.out.println("Product updated successfully.");
+        if (isUpdate) {
+            Calendar date = Calendar.getInstance();
+            history.addProductHistory("Updated", date, product, previousQuantity);
+            System.out.println("Product updated successfully.");
+        }
+        else System.out.println("Nothing has changed.");
     }
 
     @Override

@@ -58,7 +58,7 @@ public class CreateProduct implements Option {
         database.getProducts().add(product);
         System.out.println("Product created successfully");
         Calendar date = Calendar.getInstance();
-        history.addProductHistory("Create", date, product);
+        history.addProductHistory("Created", date, product, 0);
     }
     public String getOption() {
         return "Add New Product";

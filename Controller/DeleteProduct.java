@@ -17,11 +17,17 @@ public class DeleteProduct implements Option {
             System.out.println("Product not found.");
             return;
         }
+
+        // Kiểm tra nếu quantity != 0
+        if (product.getQty() != 0) {
+            System.out.println("Cannot delete product with remaining quantity: " + product.getQty());
+            return;
+        }
         
         database.getProducts().remove(product);
         System.out.println("Product deleted successfully.");
 		Calendar date = Calendar.getInstance();
-        history.addProductHistory("Delete", date, product);
+        history.addProductHistory("Deleted", date, product, product.getQty());
     }
 
     @Override

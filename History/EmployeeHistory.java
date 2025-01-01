@@ -13,6 +13,6 @@ public class EmployeeHistory extends Action {
 
     @Override
     public String toString() {
-        return "Employee " + employee.getName() + " was " + action + "d at " + date.getTime();
+        return "Employee " + employee.getName() + " was " + action + " at " + date.getTime();
     }
 }

@@ -47,7 +47,7 @@ public class CreateEmployee implements Option {
         database.getEmployees().add(e);
         System.out.println("Employee created successfully");
         Calendar date = Calendar.getInstance();
-        history.addEmployeeHistory("Create", date, e);
+        history.addEmployeeHistory("Created", date, e);
     }
 
     @Override

@@ -15,8 +15,9 @@ public class CreateFinancialReport implements Option {
         int year = s.nextInt();
 
         double revenue = calculateRevenue(database, month, year);
-        double netProfit = calculateNetProfit(database, month, year);
+        double costOfGoodsAdded = calculateCostOfGoodsAdded(database, history, month, year);
         double totalSalaries = calculateEmployeeSalaries(database);
+        double netProfit = revenue - costOfGoodsAdded - totalSalaries;
 
         System.out.println("Financial Report for " + month + "/" + year + ":");
         System.out.println("-------------------------------------------");
@@ -38,18 +39,35 @@ public class CreateFinancialReport implements Option {
         return revenue;
     }
 
-    private double calculateNetProfit(Database database, int month, int year) {
-        double netProfit = 0;
-        for (Receipt receipt : database.getReceipts()) {
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(receipt.getDate()); // Assuming Receipt has a getDate() method
-            if (cal.get(Calendar.MONTH) + 1 == month && cal.get(Calendar.YEAR) == year) {
-                for (Product product : receipt.getProducts()) {
-                    netProfit += product.getPurchasePrice() * product.getQty();
+    private double calculateCostOfGoodsAdded(Database database, History history, int month, int year) {
+        double costOfGoods = 0;
+    
+        for (String log : history.getProductHistories()) {
+            Calendar logDate = history.getLogDate(log);
+
+            if (logDate.get(Calendar.MONTH) + 1 == month && logDate.get(Calendar.YEAR) == year) {
+                String[] details = history.getProductDetails(log);
+                String action = details[0];
+    
+                if (action.equals("Created")) {
+                    // Xử lý Created
+                    int addedQuantity = Integer.parseInt(details[3]);
+                    double purchasePrice = Double.parseDouble(details[4]);
+                    costOfGoods += addedQuantity * purchasePrice;
+                } 
+                if (action.equals("Updated")) {
+                    // Xử lý Updated
+                    int previousQuantity = Integer.parseInt(details[5]);
+                    int updatedQuantity = Integer.parseInt(details[3]);
+                    if (updatedQuantity > previousQuantity) {
+                        int addedQuantity = updatedQuantity - previousQuantity;
+                        double purchasePrice = Double.parseDouble(details[4]);
+                        costOfGoods += addedQuantity * purchasePrice;
+                    }
                 }
             }
         }
-        return netProfit;
+        return costOfGoods;
     }
 
     private double calculateEmployeeSalaries(Database database) {

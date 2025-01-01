@@ -30,6 +30,7 @@ public class Admin extends Employee {
             new ReadCashierReceipts(),
             new ChangePassword(),
             new ViewHistory(),
+            new CreateFinancialReport(),
             new ExitSystem(),
         };
     }

@@ -88,7 +88,7 @@ public class CreateReceipt implements Option {
         database.getReceipts().add(receipt);
         System.out.println("Receipt created successfully.");
         Calendar date = Calendar.getInstance();
-        history.addReceiptHistory("Create", date, receipt);
+        history.addReceiptHistory("Created", date, receipt);
     }
 
     @Override

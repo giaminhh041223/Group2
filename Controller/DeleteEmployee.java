@@ -22,7 +22,7 @@ public class DeleteEmployee implements Option {
 		database.getEmployees().remove(e);
 		System.out.println("Employee deleted successfully.");
 		Calendar date = Calendar.getInstance();
-		history.addEmployeeHistory("Fire", date, e);
+		history.addEmployeeHistory("Fired", date, e);
 	}
 
 	@Override

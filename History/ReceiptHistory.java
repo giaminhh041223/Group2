@@ -13,6 +13,6 @@ public class ReceiptHistory extends Action {
 
     @Override
     public String toString() {
-        return "Receipt with ID: " + receipt.getID() + " " + action + "d at " + date.getTime();
+        return "Receipt with ID: " + receipt.getID() + " " + action + " at " + date.getTime();
     }
 }

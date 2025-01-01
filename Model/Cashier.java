@@ -19,6 +19,9 @@ public class Cashier extends Employee {
             new ReadAllReceipts(),
             new ReadReceipt(),
             new ReadMyReceipts(),
+            new ReadAllProducts(),
+            new ReadAllProductsByType(),
+            new CreateFinancialReport(),
             new ChangePassword(),
             new ExitSystem(),
         };
