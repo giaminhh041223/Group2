@@ -29,7 +29,7 @@ public class ChangePassword implements Option {
 
         user.setPassword(confirmPass);
         Calendar date= Calendar.getInstance();
-        history.addEmployeeHistory("Changed password to " + confirmPass, date, user);
+        history.addEmployeeHistory("Changed password " + confirmPass, date, user);
         System.out.println("Password changed successfully.");
     }
 

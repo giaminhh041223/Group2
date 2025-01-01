@@ -29,7 +29,7 @@ public class CreateFinancialReport implements Option {
         System.out.println("1. Revenue: " + revenue);
         System.out.println("2. Net Profit: " + netProfit);
         System.out.println("3. Total Employee Salaries: " + totalSalaries);
-        System.out.println("4.Updated Capital: " + financialSystem.getCapital());
+        System.out.println("4. Updated Capital: " + financialSystem.getCapital());
         System.out.println("-------------------------------------------");
     }
 
