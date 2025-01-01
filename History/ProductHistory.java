@@ -6,7 +6,7 @@ import Model.Product;
 
 public class ProductHistory extends Action {
 	private String productName;
-	private int previousQuantity; // Only use when action == "Updated"
+	private int previousQuantity;
 	private int quantityAtAction;
     private double purchasePriceAtAction;
 
