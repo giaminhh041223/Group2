@@ -75,7 +75,7 @@ public abstract class Employee {
 		String dept;
 		switch (getDepartment()) {
 		case 0:
-			dept = "Manager";
+			dept = "Admin";
 			break;
 		case 1:
 			dept = "Cashier";
