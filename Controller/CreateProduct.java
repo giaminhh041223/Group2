@@ -66,6 +66,8 @@ public class CreateProduct implements Option {
         Calendar date = Calendar.getInstance();
         history.addProductHistory("Created", date, product, 0);
     }
+
+    @Override
     public String getOption() {
         return "Add New Product";
     }
