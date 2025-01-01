@@ -21,6 +21,11 @@ public class CreateReceipt implements Option {
         ArrayList<Product> products = new ArrayList<>();
         System.out.println("Enter number of products:");
         int productCount = s.nextInt();
+        if (productCount > database.getProducts().size()) {
+            System.out.println("The number of products to buy exceeds the number of products in stock");
+            System.out.println("Aborting receipt creation.");
+            return;
+        }
 
         double total = 0;
         for (int i = 0; i < productCount; i++) {
