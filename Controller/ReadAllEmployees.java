@@ -1,7 +1,6 @@
 package Controller;
 
 import java.util.Scanner;
-
 import History.History;
 import Model.*;
 

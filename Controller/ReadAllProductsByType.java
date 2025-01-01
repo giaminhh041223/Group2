@@ -1,9 +1,7 @@
 package Controller;
 
 import Model.*;
-
 import java.util.Scanner;
-
 import History.*;
 
 public class ReadAllProductsByType implements Option {

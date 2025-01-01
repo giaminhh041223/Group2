@@ -23,7 +23,7 @@ public class CreateEmployee implements Option {
         
         System.out.println("Enter password:");
         String password = s.next();
-        System.out.println("Enter department");
+        System.out.println("Enter department (0: Admin, 1: Cashier, 2: Storekeeper)");
         int department = s.nextInt();
         System.out.println("Enter salary");
         double salary = s.nextDouble();

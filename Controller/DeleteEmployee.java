@@ -2,7 +2,6 @@ package Controller;
 
 import java.util.Calendar;
 import java.util.Scanner;
-
 import History.History;
 import Model.Database;
 import Model.Employee;
