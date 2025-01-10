@@ -23,8 +23,4 @@ public class FinancialSystem {
         return revenue - costOfGoodsAdded - totalSalaries;
     }
 
-    @Override
-    public String toString() {
-        return "Current Capital: " + capital;
-    }
 }
