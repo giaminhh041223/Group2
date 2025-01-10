@@ -17,6 +17,8 @@ public class Storekeeper extends Employee {
 			new UpdateProduct(),
 			new ReadAllProducts(),
 			new ReadAllProductsByType(),
+			new ChangePassword(),
+			new ExitSystem(),
         };
 	}
 	
